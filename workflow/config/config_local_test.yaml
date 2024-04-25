@@ -1,0 +1,528 @@
+resources:
+  hg19:
+    REFFA: "/Your_file_path/broad/hg19/ucsc.hg19.fasta"
+    GENOME_BED: "/Your_file_path/genome/human/hg19/genome.bed"
+    GTF: "/Your_file_path/genome/human/GRCh37/gencode.v19.annotation.gtf"
+    WES_PON: "/Your_file_path/resources/human/hg19/WES/MM_pon.vcf.gz"
+    WES_BED: ""
+    WGS_PON: "paired/PoN_sent/panel_of_normal.vcf.gz"
+    DBSNP: "/Your_file_path/broad/hg19/dbsnp_138.hg19.vcf"
+    DBSNP_GZ: "/Your_file_path/genome/human/hg19/dbsnp_151.hg19.vcf.gz"
+    DBSNP_INDEL: "/Your_file_path/genome/human/hg19/dbsnp_151_indel.hg19.vcf.gz"
+    MUTECT2_VCF: "/Your_file_path/af-only-gnomad.raw.sites.hg19.vcf.gz"
+    MUTECT2_germline_vcf: "/Your_file_path/af-only-gnomad.raw.sites.hg19.vcf.gz"
+    REFFA_DICT: "/Your_file_path/broad/hg19/ucsc.hg19.fasta"
+  b37:
+    REFFA: "/Your_file_path/reference/b37/Homo_sapiens_assembly19.fasta"
+    GENOME_BED: ""
+    GTF: ""
+    WES_PON: "/Your_file_path/reference/b37/Mutect2-exome-panel.vcf"
+    WES_BED: "hg19.exon.bed"
+    WGS_PON: "/Your_file_path/reference/b37/Mutect2-WGS-panel-b37.vcf"
+    DBSNP: "/Your_file_path/reference/b37/Homo_sapiens_assembly19.dbsnp138.vcf"
+    DBSNP_GZ: "/Your_file_path/reference/b37/Homo_sapiens_assembly19.dbsnp138.vcf.gz"
+    DBSNP_INDEL: "/Your_file_path/genome/human/hg19/dbsnp_151_indel.hg19.vcf.gz"
+    MUTECT2_VCF: "/Your_file_path/af-only-gnomad.raw.sites.b37.vcf.gz"
+    REFFA_DICT: "/Your_file_path/reference/b37/Homo_sapiens_assembly19.fasta"
+    MUTECT2_germline_vcf: "/Your_file_path/af-only-gnomad.raw.sites.b37.vcf.gz"
+  hg38:
+    REFFA: "/Your_file_path/broad/hg38-v2/Homo_sapiens_assembly38.fasta"
+    GENOME_BED: 
+    REFFA_DICT: "/Your_file_path/broad/hg38-v2/Homo_sapiens_assembly38.dict"
+    BED_GENOME_38: "/Your_file_path/projects/clinrep/meta/bed/genome/hg38/genome.bed"
+    GENECODE_HG38: "/Your_file_path/gencode/hg38/v38"
+    GTF: "/Your_file_path/genome/human/hg38/gencode.v44.primary_assembly.annotation.gtf"
+    GTF_v36: "/Your_file_path/genome/human/hg38/gencode.v36.basic.annotation.gtf"
+    GTF_v44: "/Your_file_path/genome/human/hg38/gencode.v44.primary_assembly.annotation.gtf"
+    ID2SYMBOL: "/Your_file_path/gencode/hg38/v38/tximport.geneid2symbol"
+    GENES: "/Your_file_path/gencode/hg38/v38/tximport.genes"
+    CELLRANGER: "/Your_file_path/cellranger/GRCh38"
+    CELLRANGER_FASTA: "/Your_file_path/cellranger/GRCh38/fasta/genome.fa"
+  T2T:
+    REFFA: "/Your_file_path/genome/human/T2T_human/chm13v2.0.fa"
+    DBSNP_GZ: "/Your_file_path/genome/human/T2T_human/chm13v2.0_dbSNPv155.vcf.gz"
+    GTF: "/Your_file_path/genome/human/T2T_human/chm13.draft_v2.0.gene_annotation.gtf"
+    ID2SYMBOL: "/Your_file_path/gencode/hg38/v38/tximport.geneid2symbol"
+    MUTECT2_VCF: "/Your_file_path/af-only-gnomad.raw.sites.hg19.vcf.gz"
+    GENES: 
+    CELLRANGER: 
+    GENOME_BED:
+    CYTOBAND: "/Your_file_path/genome/human/T2T_human/chm13v2.0_cytobands_allchrs.bed"
+  varanno:
+    hg19:
+      KNOWN_SITES1: "/Your_file_path/broad/hg19/dbsnp_138.hg19.vcf"
+      KNOWN_SITES2: "/Your_file_path/broad/hg19/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf"
+    b37:
+      KNOWN_SITES1: "/Your_file_path/reference/b37/1000G_phase1.snps.high_confidence.b37.vcf.gz"
+      KNOWN_SITES2: "/Your_file_path/reference/b37/1000G_phase1.indels.b37.vcf.gz"
+    hg38:
+      KNOWN_SITES1: "/Your_file_path/broad/hg38-v2/Homo_sapiens_assembly38.dbsnp138.vcf.gz"
+      KNOWN_SITES2: "/Your_file_path/broad/hg38-v2/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
+    T2T:
+      KNOWN_SITES1: "/Your_file_path/genome/human/T2T_human/chm13v2.0_dbSNPv155.vcf.gz"
+      KNOWN_SITES2: "/Your_file_path/genome/human/T2T_human/Mills_and_1000G_gold_standard.indels.chm13.vcf.gz"
+    KNOWN_SITES1: "/Your_file_path/broad/hg19/dbsnp_138.hg19.vcf"
+    KNOWN_SITES2: "/Your_file_path/broad/hg19/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf"
+
+softwares:
+  BWA: "/Your_file_path/env/miniconda3/envs/clindet/bin/bwa"
+  bwa:
+    conda: "clindet"
+    mem:
+      call: "/Your_file_path/env/miniconda3/envs/clindet/bin/bwa mem "
+      params: "-M "
+      scratch: '2000'
+      memory: '2000'
+      time: '235'
+      threads: 24
+    aln:
+      call: "/Your_file_path/env/miniconda3/envs/clindet/bin/bwa aln "
+      params: "-q 5 "
+      scratch: '1000'
+      memory: '1000'
+      time: '235'
+      threads: 24
+    sampe:
+      call: "/Your_file_path/env/miniconda3/envs/clindet/bin/bwa sampe "
+      params: ''
+      scratch: '1000'
+      mem: '1000'
+      time: '235'
+      threads: 24
+
+  SAMTOOLS: "/Your_file_path/env/miniconda3/envs/samtools114/bin/samtools"
+  samtools:
+    call: "/Your_file_path/env/miniconda3/envs/samtools114/bin/samtools "
+    conda: "samtools114"
+    flagstat:
+      scratch: '2000'
+      mem: '4000'
+      time: '20'
+      threads: 1
+      params: ''
+    index:
+      scratch: '2000'
+      mem: '2000'
+      time: '100'
+      threads: 1
+    mpileup:
+      params: "-B -q 25 -Q 20 -d 100000"
+      scratch: '8000'
+      mem: '8000'
+      time: '1400'
+      threads: 1
+    rmSecondary:
+      scratch: '4000'
+      mem: '4000'
+      time: '235'
+      threads: 1
+    rmDuplicates:
+      threads: 2
+      scratch: '2000'
+      mem: '2000'
+      time: '235'
+  
+  GATK4: "/Your_file_path/env/opt/bio/gatk/4.2.4.1/gatk"
+  gatk4:
+    call: "/Your_file_path/gatk-4.2.6.1/gatk "
+    MarkDuplicates:
+      call: "/Your_file_path/gatk-4.2.6.1/gatk MarkDuplicates "
+    BaseRecalibrator:
+      call: "/Your_file_path/gatk-4.2.6.1/gatk BaseRecalibrator "
+    ApplyBQSR:
+      call: "/Your_file_path/gatk-4.2.6.1/gatk ApplyBQSR "
+
+  GATK3: "/Your_file_path/env/opt/bio/gatk/3.8-0/GenomeAnalysisTK.jar"
+  gatk3:
+    call: "java -jar /Your_file_path/env/opt/bio/gatk/3.8-0/GenomeAnalysisTK.jar"
+
+  strelka:
+    conda: "strelka"
+    somatic:
+      call:
+
+  fastp:
+    # conda: "fastp"
+    conda: "srakit"
+
+  vcf2maf:
+    call: "perl /Your_file_path/vcf_maf/vcf2maf.pl "
+    conda: "vep105"
+    build_version:
+      hg19: "GRCh37"
+      hg38: "GRCh38"
+  maf2vcf:
+    call: "perl /Your_file_path/vcf_maf/maf2vcf.pl "
+    conda: "vep105"
+    build_version:
+      hg19: "GRCh37"
+      hg38: "GRCh38"
+
+
+  star:
+    conda: "star279"
+    index:
+      hg38: "/Your_file_path/gencode/hg38/v38/star_index/2.7.9a"
+      # hg38: "/Your_file_path/broad/hg38-v2/star_index/2.7.10b/149"
+      t2t: "/Your_file_path/STAR_index/human/T2T"
+
+  bowtie2:
+    conda: "star279"
+    index:
+      hg38: "/Your_file_path/gencode/hg38/v38/bowtie2_index"
+      # hg38: "/Your_file_path/broad/hg38-v2/star_index/2.7.10b/149"
+      t2t: "/Your_file_path/STAR_index/human/T2T"
+
+  kallisto:
+    conda:
+    index:
+      hg19:
+      hg38:
+      t2t:
+
+  kallisto:
+    conda:
+    index:
+      hg19:
+      hg38:
+      t2t:
+
+  VARSCAN2: "/Your_file_path/env/opt/bio/varscan2/VarScan.v2.4.4.jar"
+  varscan2:
+    conda: "clindet"
+    call: "java -jar /Your_file_path/VarScan.v2.4.2.jar "
+
+  pindel:
+    conda: "clindet"
+
+  bbmap:
+    callbbduk: "/Your_file_path/bbmap/bbduk.sh "
+
+  megahit:
+    call: "/Your_file_path/MEGAHIT/bin/megahit "
+
+  mafft:
+    call: "/Your_file_path/mafft-linux64/mafftdir/bin/mafft "
+
+  dimond:
+    call: "/Your_file_path/diamond "
+
+  kraken2:
+    call: "/Your_file_path/kraken2/kraken2 "
+  
+  bracken:
+    call: "/Your_file_path/Bracken/bracken "
+
+  DELLY: "/Your_file_path/delly116"
+  delly: 
+    call: "/Your_file_path/delly116 "
+
+  SANSA: "/Your_file_path/sansa"
+  sansa: 
+    call: "/Your_file_path/sansa "
+    db: "/Your_file_path/SVref/gnomad_v2.1_sv.sites.vcf.gz"
+    g: "/Your_file_path/genome/human/GRCh37/Homo_sapiens.GRCh37.87.gff3.gz"
+    hg19:
+      db: "/Your_file_path/SVref/gnomad_v2.1_sv.sites.vcf.gz"
+      g: "/Your_file_path/genome/human/GRCh37/Homo_sapiens.GRCh37.87.gff3.gz"
+      t_len: 5000
+    b37:
+      db: "/Your_file_path/SVref/gnomad_v2.1_sv.sites.vcf.gz"
+      g: "/Your_file_path/genome/human/GRCh37/Homo_sapiens.GRCh37.87.gff3.gz"
+      t_len: 5000
+    hg38:
+      db: ""
+      g: ""
+    T2T:
+      db: "/Your_file_path/genome/human/T2T_human/gnomad_v2.1_sv.sites_chr.chm13.vcf.gz"
+      g: "/Your_file_path/genome/human/T2T_human/chm13.draft_v2.0.gene_annotation.gtf.gz"
+      t_len: 5000
+  
+  RSEM: "/Your_file_path/RSEM_bin/bin/"
+  rsem:
+    pre_ref_index: "/Your_file_path/RSEM_bin/bin/rsem-prepare-reference "
+    cal_exp: "/Your_file_path/RSEM_bin/bin/rsem-calculate-expression "
+    bam2wig: "/Your_file_path/RSEM_bin/bin/rsem-bam2wig "
+    index:
+      # hg38: "/Your_file_path/genome/human/hg38/ref/hg38"
+      hg38: "/Your_file_path/genome/human/hg38/rsem_ref/hg38"
+      # hg38: "/Your_file_path/gencode/hg38/v38/star_index/2.7.9a"
+
+  ARRIBA:  "/Your_file_path/arriba_v2.3.0/arriba"
+  arriba:
+    call: "/Your_file_path/arriba_v2.3.0/arriba "
+    hg19:
+      blacklist: "/Your_file_path/arriba_v2.3.0/database/blacklist_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
+      known_fusions: "/Your_file_path/arriba_v2.3.0/database/known_fusions_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
+      protein_domains: "/Your_file_path/arriba_v2.3.0/database/protein_domains_hg19_hs37d5_GRCh37_v2.3.0.gff3"
+      cytobands: "/Your_file_path/arriba_v2.3.0/database/cytobands_hg19_hs37d5_GRCh37_v2.3.0.tsv"
+    hg38:
+      blacklist: "/Your_file_path/arriba_v2.4.0/database/blacklist_hg38_GRCh38_v2.4.0.tsv.gz"
+      known_fusions: "/Your_file_path/arriba_v2.4.0/database/known_fusions_hg38_GRCh38_v2.4.0.tsv.gz"
+      protein_domains: "/Your_file_path/arriba_v2.4.0/database/protein_domains_hg38_GRCh38_v2.4.0.gff3"
+      cytobands: "/Your_file_path/arriba_v2.4.0/database/cytobands_hg38_GRCh38_v2.4.0.tsv"
+  
+  CELLRANGER: "/Your_file_path/cellranger-7.0.1/cellranger"
+  cellranger:
+    call: "/Your_file_path/cellranger-7.0.1/cellranger"
+    cpu: 30
+    memory: 80
+    vdj:
+      ref: "/Your_file_path/VDJ/refdata-cellranger-vdj-GRCh38-alts-ensembl-5.0.0"
+    whitelist: "/Your_file_path/cellranger-7.0.1/lib/python/cellranger/barcodes/737K-august-2016.txt"
+
+  SUBREAD: "/Your_file_path/cellranger-7.0.1/cellranger"
+  subread:
+    conda: "featurecounts"
+
+  TRUST4: "/Your_file_path/TRUST4/run-trust4"
+  trust4:
+    call: "/Your_file_path/TRUST4/run-trust4 "
+    conda: "clindet"
+    hg19:
+      ref: "/Your_file_path/TRUST4/IMGT+C.fa"
+      f: "/Your_file_path/TRUST4/hg19_bcrtcr.fa"
+    hg38:
+      ref: "/Your_file_path/TRUST4/IMGT+C.fa"
+      f: "/Your_file_path/TRUST4/hg38_bcrtcr.fa"
+
+  JVARKIT: 
+  jvarkit:
+    bamrenamechr:
+      call: "java -jar /Your_file_path/jvarkit/dist/bamrenamechr.jar "
+      hg19_add_chr: "/Your_file_path/jvarkit/src/main/resources/chromnames/g1kv37_to_hg19.tsv"
+      hg19_remove_chr: "/Your_file_path/jvarkit/src/main/resources/chromnames/hg19_to_g1kv37.tsv"
+
+  BATTENBERG:
+  battenberg:
+    conda: "snakemake"
+
+  VELOCYTO:
+  velocyto:
+    conda: "velocyto"
+    hg38:
+      mask_gtf: "/Your_file_path/velocyto/hg38/hg38_rmsk.gtf"
+      gene_gtf: "/Your_file_path/cellranger/GRCh38/genes/genes.gtf"
+    mm10:
+      mask_gtf: "/Your_file_path/velocyto/mm10/mm10_rmsk.gtf"
+      gene_gtf: "/Your_file_path/genome/mouse/mm10/cellranger/genes/genes.gtf"
+
+  SEQUENZA:
+  sequenza:
+    conda: "sequenza"
+    hg19:
+      gc: hg19_gc50.wig.gz 
+    b37:
+      gc: hg19_gc50.wig.gz 
+  
+
+  MACS3:
+  macs3:
+    conda: "macs3"
+    hg38:
+      mask_gtf: "/Your_file_path/velocyto/hg38/hg38_rmsk.gtf"
+      gene_gtf: "/Your_file_path/cellranger/GRCh38/genes/genes.gtf"
+    mm10:
+      mask_gtf: "/Your_file_path/velocyto/mm10/mm10_rmsk.gtf"
+      gene_gtf: "/Your_file_path/genome/mouse/mm10/cellranger/genes/genes.gtf"
+
+  PICARD: "/Your_file_path/picard.jar"
+  picard:
+    call: "/Your_file_path/picard.jar "
+  
+  FREEC: 
+  freec: 
+    singu: 
+    config:
+      wxs:
+      wgs:
+
+singularity:
+  cgppindel:
+    sif: "/Your_file_path/pindel.sif"
+    cpu: 30
+    hg19:
+      genes: "/Your_file_path/mutFilter/hg19.exon.bed.gz"
+      simrep: "/Your_file_path/mutFilter/simpleRepeats.bed.gz"
+      WES:
+        normal_panel: "/Your_file_path/cgppindel/hg19/WES/normalPanel/cgppindel.gff3.gz"
+      WGS:
+        normal_panel: "/Your_file_path/cgppindel/hg19/WGS/normalPanel/cgppindel.gff3.gz"
+    b37:
+      genes: "/Your_file_path/mutFilter/hg19.exon.bed.gz"
+      simrep: "/Your_file_path/reference/b37/SNV_INDEL_ref/pindel/simpleRepeats.bed.gz"
+      WES:
+        normal_panel: "/Your_file_path/reference/b37/SNV_INDEL_ref/pindel/pindel_np.gff3.gz"
+      WGS:
+        normal_panel: "/Your_file_path/reference/b37/SNV_INDEL_ref/pindel/pindel_np.gff3.gz"
+    T2T:
+      genes: ""
+      simrep: ""
+      WES:
+        normal_panel: "/Your_file_path/cgppindel/T2T/WES/normalPanel/cgppindel.gff3.gz"
+      WGS:
+        normal_panel: "/Your_file_path/cgppindel/T2T/WGS/normalPanel/cgppindel.gff3.gz"
+  
+  caveman:
+    sif: "/Your_file_path/caveman153.sif"
+    cpu: 30
+    ignorebed: "/Your_file_path/hg19_ignore-region-exon.bed"
+    hg19:
+      flag:
+        c: "/Your_file_path/analysis/caveman/flag.vcf.config.ini"
+        v: "/Your_file_path/analysis/caveman/flag.to.vcf.convert.ini"
+        u: "/Your_file_path/analysis/caveman"
+        g: "/Your_file_path/analysis/caveman/germline.bed.gz"
+        b: "/Your_file_path/analysis/caveman"
+        ab: "/Your_file_path/analysis/caveman"
+    b37:
+      flag:
+        c: "/Your_file_path/analysis/caveman/flag.vcf.config.ini"
+        v: "/Your_file_path/analysis/caveman/flag.to.vcf.convert.ini"
+        u: "/Your_file_path/reference/b37/SNV_INDEL_ref/caveman/flagging"
+        g: "/Your_file_path/analysis/caveman/germline.bed.gz"
+        b: "/Your_file_path/reference/b37/SNV_INDEL_ref/caveman/flagging"
+        ab: "/Your_file_path/reference/b37/SNV_INDEL_ref/caveman/flagging"
+
+
+  brass:
+    sif: "/Your_file_path/brass634.sif"
+    cpu: 30
+    gc: "/Your_file_path/BRASS/hg19_chr.cache.gz"
+    b: "/Your_file_path/BRASS/ucsc.hg19.gcBins_auto.bed.gz"
+    d: "/Your_file_path/BRASS/Hiseq_brass.bed"
+    cb: "/Your_file_path/BRASS/hg19_cyband_ideo.bed"
+    ct: "/Your_file_path/BRASS/Human.GRCh37.CentTelo.tsv"
+    vi: "/Your_file_path/BRASS/2bit/viral.genomic.merged.fa.2bit"
+    mi: "/Your_file_path/BRASS/2bit/all_ncbi_bacteria"
+    hg19:
+      gc: "/Your_file_path/BRASS/hg19_chr.cache.gz"
+      b: "/Your_file_path/BRASS/ucsc.hg19.gcBins_auto.bed.gz"
+      d: "/Your_file_path/BRASS/Hiseq_brass.bed"
+      cb: "/Your_file_path/BRASS/hg19_cyband_ideo.bed"
+      ct: "/Your_file_path/BRASS/Human.GRCh37.CentTelo.tsv"
+      vi: "/Your_file_path/BRASS/2bit/viral.genomic.merged.fa.2bit"
+      mi: "/Your_file_path/BRASS/2bit/all_ncbi_bacteria"
+    b37:
+      gc: "/Your_file_path/BRASS/hg19_chr.cache.gz"
+      b: "/Your_file_path/reference/b37/CNV_SV_ref/brass/500bp_windows.gc.bed.gz"
+      d: "/Your_file_path/reference/b37/CNV_SV_ref/brass/HiDepth.bed.gz"
+      cb: "/Your_file_path/reference/b37/CNV_SV_ref/brass/cytoband.txt"
+      ct: "/Your_file_path/reference/b37/CNV_SV_ref/brass/CentTelo.tsv"
+      vi: "/Your_file_path/BRASS/2bit/viral.genomic.merged.fa.2bit"
+      mi: "/Your_file_path/reference/b37/CNV_SV_ref/brass/all_ncbi_bacteria"
+    T2T:
+      gc: "/Your_file_path/BRASS/hg19_chr.cache.gz"
+      b: "/Your_file_path/BRASS/ucsc.hg19.gcBins_auto.bed.gz"
+      d: "/Your_file_path/BRASS/Hiseq_brass.bed"
+      cb: "/Your_file_path/genome/human/T2T_human/chm13v2.0_cytobands_allchrs.bed"
+      ct: "/Your_file_path/BRASS/Human.GRCh37.CentTelo.tsv"
+      vi: "/Your_file_path/BRASS/2bit/viral.genomic.merged.fa.2bit"
+      mi: "/Your_file_path/BRASS/2bit/all_ncbi_bacteria"
+
+  cgpwgs:
+    sif: "/Your_file_path/cgpwgs.sif"
+
+  svaba:
+    sif: "/Your_file_path/svaba.sif"
+
+  cgpbattenberg:
+    sif: "/Your_file_path/cgpbattenberg371.sif"
+    gc: "/Your_file_path/ASCAT_chr/hg19/battenberg_wgs_gc_correction_1000g_v3/"
+    impute: "/Your_file_path/ASCAT_chr/hg19/battenberg_impute_v3/impute_info.txt"
+    prob_loci: "/Your_file_path/ASCAT_chr/hg19/probloci.txt"
+    ignorebed: "/Your_file_path/genome/human/hg19/hg19.exclude.contigs.txt"
+    loci_1000: "/Your_file_path/ASCAT_chr/battenberg_1000genomesloci2012_v3/"
+  
+  arriba:
+    sif: "/Your_file_path/arriba240.sif"
+    call: "/arriba_v2.4.0/arriba "
+    database:
+      hg19:
+        blacklist: "/arriba_v2.4.0/database/blacklist_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
+        known_fusions: "/arriba_v2.4.0/database/known_fusions_hg19_hs37d5_GRCh37_v2.3.0.tsv.gz"
+        protein_domains: "/arriba_v2.4.0/database/protein_domains_hg19_hs37d5_GRCh37_v2.3.0.gff3"
+        cytobands: "/arriba_v2.4.0/database/cytobands_hg19_hs37d5_GRCh37_v2.4.0.tsv"
+      hg38:
+        blacklist: "/arriba_v2.4.0/database/blacklist_hg38_GRCh38_v2.4.0.tsv.gz"
+        known_fusions: "/arriba_v2.4.0/database/known_fusions_hg38_GRCh38_v2.4.0.tsv.gz"
+        protein_domains: "/arriba_v2.4.0/database/protein_domains_hg38_GRCh38_v2.4.0.gff3"
+        cytobands: "/arriba_v2.4.0/database/cytobands_hg38_GRCh38_v2.4.0.tsv"
+    
+  lofreq:
+    sif: "/Your_file_path/lofreq215.sif"
+
+  muse:
+    sif: "/Your_file_path/muse230.sif"
+
+  deepvariant:
+    sif: "/Your_file_path/deepvariant_latest.sif"
+
+  deepvariant_somatic:
+    sif: "/Your_file_path/deepsomatic_160.sif"
+
+  jasminesv:
+    sif: "/Your_file_path/jasminesv.sif"
+  
+  easyfuse:
+    sif: "/Your_file_path/easyfuse137.sif"
+
+  hahmmr:
+    sif: "/Your_file_path/numbat.sif"
+    config:
+      hg19:
+        gmap: "/Eagle_v2.4.1/tables/genetic_map_hg38_withX.txt.gz"
+        snpvcf: "/data/genome1K.phase3.SNP_AF5e2.chr1toX.hg38.vcf"
+      hg38:
+        gmap: "/Eagle_v2.4.1/tables/genetic_map_hg38_withX.txt.gz"
+        snpvcf: "/data/genome1K.phase3.SNP_AF5e2.chr1toX.hg38.vcf"
+
+  numbat:
+    sif: "/Your_file_path/numbat.sif"
+    config:
+      hg19:
+        gmap: "/Eagle_v2.4.1/tables/genetic_map_hg38_withX.txt.gz"
+        snpvcf: "/data/genome1K.phase3.SNP_AF5e2.chr1toX.hg38.vcf"
+      hg38:
+        gmap: "/Eagle_v2.4.1/tables/genetic_map_hg38_withX.txt.gz"
+        snpvcf: "/data/genome1K.phase3.SNP_AF5e2.chr1toX.hg38.vcf"
+
+  # battenberg from hpc
+  battenberg:
+
+  igcaller:
+    sif: "/Your_file_path/igcaller-1.2.1.simg"
+
+  gridss:
+    sif: "/Your_file_path/gridss2_13_2.sif"
+
+  hmftools:
+    sif: "/Your_file_path/hmftools.sif"
+    b37:
+      amber:
+        loci: "/Your_file_path/reference/b37/pipeline/GermlineHetPon.37.vcf.gz"
+      cobalt:
+        ref_genome_version: 37
+        tumor_only_diploid_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/copy_number/DiploidRegions.37.bed.gz"
+        gc_profile: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/copy_number/GC_profile.1000bp.37.cnp"
+      purple:
+        ref_genome_version: 37
+        tumor_only_diploid_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/copy_number/DiploidRegions.37.bed.gz"
+        gc_profile: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/copy_number/GC_profile.1000bp.37.cnp"
+        ensembl_data_dir: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/common/ensembl_data"
+        somatic_hotspots: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/KnownHotspots.somatic.37.vcf.gz"
+        driver_gene_panel: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/common/DriverGenePanel.37.tsv"
+      sage:
+        ref_genome_version: 37
+        ensembl_data_dir: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/common/ensembl_data"
+        coverage_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/CoverageCodingPanel.37.bed.gz"
+        hotspots: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/KnownHotspots.somatic.37.vcf.gz "
+        panel_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/ActionableCodingPanel.37.bed.gz"
+        high_confidence_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz"
+
+
+
+  
+params:
+  java:
+    temp_directory: "/Your_file_path/_tmp"

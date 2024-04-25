@@ -1,0 +1,15 @@
+# 克隆clindet环境
+
+git clone clindet
+cd clindet
+## 安装conda与singularity
+
+## 准备snakemake环境
+
+conda create -n 
+
+## 下载参考基因组
+
+## 下载ASCAT、Battenberg、vcf2maf、caveman、
+## 准备运行所需的conda环境
+Snakemake可以对每一个每次运行时都构建新的conda 环境，但是为了增加环境的可重复利用，推荐使用

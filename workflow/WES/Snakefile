@@ -1,0 +1,86 @@
+def get_tumor_fastq(wildcards):
+    fq_files = list(samples_info.loc[wildcards.sample,['Tumor_R1_file_path','Tumor_R2_file_path']])
+    return {
+        "R1":fq_files[0],
+        "R2":fq_files[1],
+    }
+
+def get_normal_fastq(wildcards):
+    fq_files = list(samples_info.loc[wildcards.sample,['Normal_R1_file_path','Normal_R2_file_path']])
+    return {
+        "R1":fq_files[0],
+        "R2":fq_files[1],
+    }
+
+def get_sample_bed(wildcards):
+    bed_file = samples_info.loc[wildcards.sample,'Target_file_bed']
+    return(bed_file)
+
+def get_gender(wildcards):
+    gender = samples_info.loc[wildcards.sample,'gender']
+    return(gender)
+
+
+def get_vcf_name(wildcards):
+    if wildcards.sample in paired_samples:
+        if wildcards.caller == 'vardict' or wildcards.caller == 'vardict_filter' or wildcards.caller == 'vardict_germline':          
+            name =  "--tumor-id " + wildcards.sample + '-T' + " --normal-id " + wildcards.sample + '-NC'
+        elif wildcards.caller == 'cgppindel_filter':
+            name = "--tumor-id TUMOUR --normal-id NORMAL"
+        elif wildcards.caller == 'caveman':
+            name = "--tumor-id TUMOUR --normal-id NORMAL"
+        elif wildcards.caller == 'muse':
+            name = "--tumor-id TUMOR --normal-id NORMAL"
+        else: 
+            name =  "--tumor-id " + wildcards.sample + '_T' + " --normal-id " + wildcards.sample + '_NC'
+    else:
+        name =  "--tumor-id " + wildcards.sample + '_T' + " --normal-id " + wildcards.sample + '_NORMAL'
+    return(name)
+
+
+def get_vcf_file(wildcards):
+    if wildcards.sample in paired_samples:
+        file_name =  f"{project}/{genome_version}/results/vcf/" + 'paired' + "/{sample}/{caller}.vcf"
+    else:
+        file_name =  f"{project}/{genome_version}/results/vcf/" + 'unpaired' + "/{sample}/{caller}.vcf"
+    return(file_name)
+
+
+# ##### Modules #####
+include: "rules/qc.smk"
+include: "rules/mapping.smk"
+# include: "rules/calling_paired.smk"
+# include: "rules/calling_paired_strelka.smk"
+# include: "rules/calling_unpaired.smk"
+
+## cgp pipeline caller
+include: "rules/cgp/cgppindel.smk"
+include: "rules/cgp/cgpCaVEMan.smk"
+include: "rules/cgp/cgpBattenberg.smk"
+## rtm
+include: "rules/rtm/paired/vardict.smk"
+include: "rules/rtm/paired/HaplotypeCaller.smk"
+if (recall_pon or not pre_pon_db) and (not custome_pon_db):
+    # print('recall')
+    include: "rules/rtm/paired/Mutect2_pon.smk"
+    # include: "rules/rtm/paired/Mutect2.smk"
+elif custome_pon_db:
+    include: "rules/rtm/paired/Mutect2_with_pon.smk"
+else:
+    # print('not recall')
+    include: "rules/rtm/paired/Mutect2.smk"
+# include: "rules/rtm/paired/Mutect2_filter_tmp.smk"
+include: "rules/rtm/paired/Strelka.smk"
+include: "rules/rtm/paired/varscan2.smk"
+include: "rules/rtm/paired/Muse.smk"
+include: "rules/rtm/paired/Lofreq.smk"
+include: "rules/rtm/paired/DeepVariant.smk"
+include: "rules/rtm/paired/UnifiedGenoTyper.smk"
+include: "rules/rtm/paired/CNV.smk"
+
+#include: "rules/merge.smk"
+include: "rules/merge_loop.smk"
+include: "rules/merge_loop_germline.smk"
+include: "rules/mutationTime.smk"
+# include: "rules/CNV.smk"
+include: "rules/SV.smk"

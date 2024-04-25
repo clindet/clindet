@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - gsutil=5.24
+  - htslib=1.17
+  - python=3.9

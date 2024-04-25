@@ -1,0 +1,2 @@
+jobs: 40
+cluster: "sbatch --cpus-per-task={threads} --output=logs/slurm/{wildcards.sample}_{rule}.%N.%j.out --job-name={rule} -p CPU"

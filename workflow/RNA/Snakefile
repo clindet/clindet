@@ -1,0 +1,59 @@
+
+
+configfile: "/public/ClinicalExam/lj_sih/projects/project_pipeline/config/config.yaml"
+
+
+def get_rna_fastq(wildcards):
+    fq_files = list(samples_info.loc[wildcards.sample,['R1_file_path','R2_file_path']])
+    return {
+        "R1":fq_files[0],
+        "R2":fq_files[1],
+    }
+
+def get_sample_bed(wildcards):
+    bed_file = samples_info.loc[wildcards.sample,'Target_file_bed']
+    return(bed_file)
+
+def get_sample_gender(wildcards):
+    bed_file = samples_info.loc[wildcards.sample,'gender']
+    return(bed_file)
+
+
+def get_vcf_name(wildcards):
+    if wildcards.sample in paired_samples:
+        if wildcards.caller == 'vardict':          
+            name =  "--tumor-id " + wildcards.sample + '-T' + " --normal-id " + wildcards.sample + '-NC'
+        else: 
+            name =  "--tumor-id " + wildcards.sample + '_T' + " --normal-id " + wildcards.sample + '_NC'
+    else:
+        name =  "--tumor-id " + wildcards.sample + '_T' + " --normal-id " + wildcards.sample + '_NORMAL'
+    return(name)
+
+
+def get_vcf_file(wildcards):
+    if wildcards.sample in paired_samples:
+        file_name =  f"results/vcf/" + 'paired' + "/{sample}/{caller}.vcf"
+    else:
+        file_name =  f"results/vcf/" + 'unpaired' + "/{sample}/{caller}.vcf"
+    return(file_name)
+
+
+
+##### Modules #####
+
+include: "rules/qc.smk"
+include: "rules/mapping.smk"
+# include: "rules/calling_paired.smk"
+# include: "rules/calling_paired_strelka.smk"
+# include: "rules/calling_unpaired.smk"
+
+#include: "rules/merge.smk"
+# include: "rules/merge_loop.smk"
+include: "rules/CNV.smk"
+include: "rules/SV.smk"
+include: "rules/findvirus.smk"
+include: "rules/fusion.smk"
+
+include: "rules/mut/GATK_pre.smk"
+include: "rules/liftover.smk"
+

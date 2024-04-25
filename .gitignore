@@ -1,0 +1,129 @@
+# 
+.keras/
+eval/
+pre_bin/
+report/
+resources/
+output/
+data/
+analysis/
+
+logs/
+workflow/scRNA/
+./RNA/
+./WES/
+./WGS/
+
+/pipe*.csv
+/*.out
+/test.csv
+/geneinfo.rds
+/*.R
+/Snakefile
+/*.smk
+
+### remove all dep_smk file (Deprecated)
+*.smk_dep
+
+
+### config
+workflow/config/freec_WES.toml
+workflow/config/config_model
+workflow/config/config.yaml
+## RNA workflow ignore
+# folder
+workflow/RNA/rules/mut_liftover/
+workflow/RNA/rules/mut/
+workflow/RNA/rules/summary/
+workflow/RNA/scripts/
+
+# smk files
+workflow/RNA/rules/AS.smk
+workflow/RNA/rules/calling_unpaired.smk
+workflow/RNA/rules/CNV.smk
+workflow/RNA/rules/common.smk
+workflow/RNA/rules/findvirus.smk
+workflow/RNA/rules/kraken2.smk
+workflow/RNA/rules/liftover.smk
+workflow/RNA/rules/merge_loop.smk
+workflow/RNA/rules/merge.smk
+workflow/RNA/rules/SV.smk
+workflow/RNA/rules/TCGA_star.smk
+
+
+### WES workflow ignores
+# folder
+
+# smkfile
+workflow/WES/rules/rtm/paired/fusion_fq.smk
+workflow/WES/rules/rtm/paired/Mutect2_filter_tmp.smk
+workflow/WES/rules/mutationTime.smk
+workflow/WES/rules/SV.smk
+
+workflow/WES/scripts/*.txt
+workflow/WES/scripts/caveman/
+workflow/WES/scripts/MM-100/
+workflow/WES/scripts/last.dump.rda
+workflow/WES/scripts/MM-100_new/
+workflow/WES/scripts/config_freec.py
+workflow/WES/scripts/ASCAT_to_GISTIC2.R
+workflow/WES/scripts/exomCopy.R
+workflow/WES/scripts/facetsCH_pon.R
+workflow/WES/scripts/filter_maf.R
+workflow/WES/scripts/MTR.R
+workflow/WES/scripts/new
+workflow/WES/scripts/old
+workflow/WES/scripts/pinde_filter.js
+workflow/WES/scripts/sequenza.R
+workflow/WES/scripts/stats_ascat.R
+workflow/WES/scripts/sub*
+workflow/WES/scripts/test*
+
+
+
+### WGS workflow ignores
+# folder
+
+# smkfile
+workflow/WGS/rules/cgp/cgppindel_temp.smk
+workflow/WGS/rules/cgp/cgppindel_nobuild_NP.smk
+
+workflow/WGS/rules/rtm/paired/Mutect2_filter_tmp.smk
+workflow/WGS/rules/rtm/paired/vardict.smk
+workflow/WGS/rules/rtm/paired/CNV/
+workflow/WGS/rules/rtm/paired/svclone.smk
+workflow/WGS/rules/rtm/paired/varscan2.smk
+
+
+workflow/WGS/rules/mapping_spark.smk
+workflow/WGS/rules/mutationTime.smk
+
+workflow/WGS/rules/PhylogicNDT_nocoding.smk
+workflow/WGS/rules/PhylogicNDT.smk
+
+
+
+# scripts files
+workflow/WGS/scripts/*.txt
+workflow/WGS/scripts/caveman
+workflow/WGS/scripts/ABSOLUTE_Battenberg.R
+workflow/WGS/scripts/Absolute.R
+workflow/WGS/scripts/ABSOLUTE.R
+workflow/WGS/scripts/ASCAT-maftools.R
+
+workflow/WGS/scripts/Battenberg_merge.R
+workflow/WGS/scripts/dpclust*
+workflow/WGS/scripts/ExomeDepth.R
+workflow/WGS/scripts/facetsCH_pon.R
+workflow/WGS/scripts/filter_maf.R
+workflow/WGS/scripts/Gviz.R
+workflow/WGS/scripts/MTR_combine.R
+workflow/WGS/scripts/MTR.R
+workflow/WGS/scripts/phylogicndt_config_nocoding.R
+workflow/WGS/scripts/phylogicndt_config.R
+workflow/WGS/scripts/pinde_filter.js
+workflow/WGS/scripts/sequenza.R
+workflow/WGS/scripts/stats_ascat.R
+workflow/WGS/scripts/sub*
+workflow/WGS/scripts/test*
+workflow/WGS/scripts/ign_hg19.csv
