@@ -520,7 +520,10 @@ singularity:
         panel_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/ActionableCodingPanel.37.bed.gz"
         high_confidence_bed: "/Your_file_path/reference/b37/pipeline/v5_34/ref/37/variants/NA12878_GIAB_highconf_IllFB-IllGATKHC-CG-Ion-Solid_ALLCHROM_v3.2.2_highconf.bed.gz"
 
-
+  rnaindel:
+    sif: "/Your_file_path/rnaindel_13_2.sif"
+    hg38:
+      data_dir: "/Your_file_path/data_dir"
 
   
 params:
