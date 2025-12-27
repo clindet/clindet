@@ -1,4 +1,4 @@
-**We have released a major update to ClinDet. As a result, this repository is no longer actively maintained. For the latest version, please visit the new GitHub repository [GitHub repository](https://github.com/zyllifeworld/clindet) for details.**
+**We have released a major update to ClinDet. As a result, this repository is no longer actively maintained. For the latest version, please visit the new [GitHub repository](https://github.com/zyllifeworld/clindet) for details.**
 ___
 
 # clindet
